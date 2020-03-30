@@ -1,2 +1,2 @@
-# UnionFindAlgorithmen
-Implementierung von Union-Find Algorithmen in Java. 
+# Algorithmen und Datenstrukturen
+Implementierung von verschiedenen Algorithmen in Java. 
