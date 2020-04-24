@@ -60,7 +60,9 @@ public class ConnectedComponents {
 		for (int i = 0; i < edges.length; i++) {
 			node = uf.find(i);
 			neighbor = uf.find(edges[i]);
-			uf.union(node, neighbor, node);
+			if(node != neighbor) {
+				uf.union(node, neighbor, node);
+			}
 		}
 		
 		return true;
