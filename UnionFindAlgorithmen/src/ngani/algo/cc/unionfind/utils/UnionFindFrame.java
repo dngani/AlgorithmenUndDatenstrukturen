@@ -9,6 +9,13 @@ package ngani.algo.cc.unionfind.utils;
  */
 public abstract class UnionFindFrame {
 	
+	public static final int SIMPLE = 1;
+	public static final int RELABEL = 2;
+	public static final int SIMPLETREE = 3;
+	public static final int WEIGHTEDUNION = 4;
+	public static final int PATHCOMPRESSION = 5;
+	
+	
 	/**
 	 * Initialize an array with the given length and fill it with numbers from 0 to {@code numberOfNodes}
 	 * @param numberOfNodes
