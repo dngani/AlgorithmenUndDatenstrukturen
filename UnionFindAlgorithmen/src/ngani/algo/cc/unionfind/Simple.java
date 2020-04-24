@@ -12,7 +12,11 @@ import ngani.algo.cc.unionfind.utils.UnionFindFrame;
 public class Simple extends UnionFindFrame {
 	
 	private int names[];
+	
+	public Simple(String graphname) {
 
+	}
+	
 	@Override
 	public void initialize(int numberOfNodes) {
 		// TODO Auto-generated method stub

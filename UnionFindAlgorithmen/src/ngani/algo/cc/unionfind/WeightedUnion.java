@@ -16,6 +16,10 @@ public class WeightedUnion extends UnionFindFrame {
 	private int vater[];
 	private int wurzel[];
 	
+	public WeightedUnion (String graphname) {
+
+	}	
+	
 	@Override
 	public void initialize(int numberOfNodes) {
 		// TODO Auto-generated method stub

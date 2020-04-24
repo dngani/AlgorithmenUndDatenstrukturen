@@ -15,6 +15,10 @@ public class PathCompression extends UnionFindFrame	{
 	private int sizes[];
 	private int vater[];
 	private int wurzel[];
+	
+	public PathCompression (String graphname) {
+
+	}
 
 	@Override
 	public void initialize(int numberOfNodes) {

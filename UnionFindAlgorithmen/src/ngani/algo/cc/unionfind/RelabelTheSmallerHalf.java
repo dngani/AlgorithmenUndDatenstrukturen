@@ -17,6 +17,9 @@ public class RelabelTheSmallerHalf extends UnionFindFrame {
 	private int sizes[];
 	private ArrayList<ArrayList<Integer>> L;
 	
+	public RelabelTheSmallerHalf (String graphname) {
+
+	}	
 
 	@Override
 	public void initialize(int numberOfNodes) {

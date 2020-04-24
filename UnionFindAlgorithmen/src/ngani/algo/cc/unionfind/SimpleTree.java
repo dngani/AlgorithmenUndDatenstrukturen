@@ -15,6 +15,10 @@ public class SimpleTree extends UnionFindFrame {
 	private int vater[];
 	private int wurzel[];
 
+	public SimpleTree (String graphname) {
+
+	}	
+	
 	@Override
 	public void initialize(int numberOfNodes) {
 		// TODO Auto-generated method stub
