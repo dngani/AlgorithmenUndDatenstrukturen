@@ -11,8 +11,53 @@ import ngani.algo.cc.unionfind.utils.UnionFindFrame;
  *
  */
 public class ConnectedComponents {
+	
+	/**
+	 * @param numberOfNodes the size of the graph
+	 * @param edges maximum one edge per node
+	 * @return the number of connected components 
+	 * For example 1 mean all elements are together connected.
+	 * {@code n } mean the given graph has n connected subgraphs.
+	 */
+	public boolean testConnectivity(int numberOfNodes, int [] edges) {
+		
+		System.out.println("------------------------------\n"+"Number of nodes: "+numberOfNodes+"\n"
+				+"EDGES:\t"+arrayToString(edges)+"\n------------------------------");
+		UnionFindFrame uf;
+		boolean done = false;
+		
+		// Test Simple
+		uf= new Simple("Simple"+numberOfNodes); 
+		done = runTest(uf, numberOfNodes, edges);
+		uf.logNames("++++SIMPLE+++++");
+		
+		// Test Relabel the Smaller Half
+		uf= new RelabelTheSmallerHalf("RelabelTheSmallerHalf"+numberOfNodes); 
+		done = runTest(uf, numberOfNodes, edges);
+		uf.logNames("++++RELABEL+++++");
+		
+		// Test SimpleTree
+		uf= new SimpleTree("SimpleTree"+numberOfNodes);
+		done = runTest(uf, numberOfNodes, edges);
+		uf.logNames("++++SIMPLETREE+++++");
+		
+		// Test weighted Union
+		uf= new WeightedUnion("WeightedUnion"+numberOfNodes);
+		done = runTest(uf, numberOfNodes, edges);
+		uf.logNames("++++WEIGTHEDUNION+++++");
+		
+		// Test Path Compression
+		uf= new PathCompression("PathCompression"+numberOfNodes);
+		done = runTest(uf, numberOfNodes, edges);
+		uf.logNames("++++PATHCOMPRESSION+++++");
+		
+		return done;
+	}
 
 	/**
+	 * @param classname the name of the class instance, which should be used
+	 * @param numberOfNodes the size of the graph
+	 * @param edges maximum one edge per node
 	 * @return the number of connected components 
 	 * For example 1 mean all elements are together connected.
 	 * {@code n } mean the given graph has n connected subgraphs.
@@ -26,18 +71,28 @@ public class ConnectedComponents {
 			case UnionFindFrame.SIMPLE: 
 				uf= new Simple(""+classname+numberOfNodes); 
 				done = runTest(uf, numberOfNodes, edges);
+				uf.logNames("++++SIMPLE+++++");
+				break;
 			case UnionFindFrame.RELABEL: 
 				uf= new RelabelTheSmallerHalf(""+classname+numberOfNodes); 
 				done = runTest(uf, numberOfNodes, edges);
+				uf.logNames("++++RELABEL+++++");
+				break;
 			case UnionFindFrame.SIMPLETREE: 
 				uf= new SimpleTree(""+classname+numberOfNodes);
 				done = runTest(uf, numberOfNodes, edges);
+				uf.logNames("++++SIMPLETREE+++++");
+				break;
 			case UnionFindFrame.WEIGHTEDUNION: 
 				uf= new WeightedUnion(""+classname+numberOfNodes);
 				done = runTest(uf, numberOfNodes, edges);
+				uf.logNames("++++WEIGTHEDUNION+++++");
+				break;
 			case UnionFindFrame.PATHCOMPRESSION: 
 				uf= new PathCompression(""+classname+numberOfNodes);
 				done = runTest(uf, numberOfNodes, edges);
+				uf.logNames("++++PATHCOMPRESSION+++++");
+				break;
 		}
 
 		return done;
@@ -66,6 +121,15 @@ public class ConnectedComponents {
 		}
 		
 		return true;
+	}
+	
+	private String arrayToString(int [] values) {
+		String result = "[";
+		for(int val: values) {
+			result+=val+",";
+		}
+		result = result.substring(0, result.length()-1)+"]";
+	return result;
 	}
 
 }
